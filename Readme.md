@@ -3,12 +3,12 @@
 
 ### For Details See [Speed Camera GitHub Wiki](https://github.com/pageauc/rpi-speed-camera/wiki)
 
-IMPORTANT speed-cam.py release 3.6 or above requires a full install.
-It is advised that you rename/delete previous rpi-speed-camera folder
+IMPORTANT `speed-cam.py` release 3.6 or above requires a full install.
+It is advised that you rename/delete previous `rpi-speed-camera` folder
 and rerun GitHub Quick Install or Manual Install.  This will avoid problems.
-Default config.py is designed for quad core RPI's.  If you have an older
-single core RPI copy config.py.240 to config.py.  This should improve performance.
-Use menubox.sh to change settings or nano config.py
+Default `config.py` is designed for quad core RPI's.  If you have an older
+single core RPI copy `config.py.240` to `config.py`.  This should improve performance.
+Use `menubox.sh` to change settings or `vim config.py`
 
 ### Quick Install   
 Easy Install of speed-cam onto a Raspberry Pi Computer with latest Raspbian. 
@@ -17,9 +17,9 @@ Easy Install of speed-cam onto a Raspberry Pi Computer with latest Raspbian.
 
 From a computer logged into the RPI via ssh(Putty) session use mouse to highlight command above, right click, copy.  
 Then select ssh(Putty) window, mouse right click, paste.  The command should 
-download and execute the github speed-install.sh script for rpi-speed-camera object(vehicle) speed tracker.  
+download and execute the github `speed-install.sh` script for `rpi-speed-camera` object(vehicle) speed tracker.  
 This install can also be done directly on an Internet connected Raspberry Pi via a console or desktop terminal session and web browser.      
-Note - a raspbian apt-get update and upgrade will be performed as part of install 
+Note - a raspbian `apt-get update` and upgrade will be performed as part of install 
 so it may take some time if these are not up-to-date
 
 #### or Manual Install   
@@ -74,26 +74,26 @@ restricted between y_upper and y_lower variables (road or area of interest).
 If a track is longer than track_len_trig variable then average speed will be 
 calculated (based on cal_obj_px and cal_obj_mm variables) and a speed photo will be
 taken and saved in an images folder. If log_data_to_file=True then a
-speed2.csv file will be created/updated with event data stored in
+`speed2.csv` file will be created/updated with event data stored in
 CSV (Comma Separated Values) format. This can be imported into a spreadsheet.
 
 ### How to Run    
-To run speed-cam.py as a background task or on boot from /etc/rc.local then
+To run `speed-cam.py` as a background task or on boot from `/etc/rc.local` then
 
     cd ~/rpi-speed-camera
     ./speed-cam.sh start
     
-or to run on boot edit /etc/rc.local file using nano editor per command below
+or to run on boot edit `/etc/rc.local` file using nano editor per command below
 
-    sudo nano /etc/rc.local
+    sudo vim /etc/rc.local
 
 Then add line below before the exit line then ctrl-x y to save and reboot to test
 
     /home/pi/rpi-speed-camera/speed-cam.sh start
     exit 0    
     
-Edit the speed-cam.sh script to suit your needs per comments.  
-Note you may need to change the sleep delay time if rc.local does not run script
+Edit the `speed-cam.sh` script to suit your needs per comments.  
+Note you may need to change the sleep delay time if `rc.local` does not run script
 successfully at boot, since services may need more time to start.  
         
 To Run using python3 perform the following (Note you must have opencv for python3 already installed)
@@ -118,15 +118,15 @@ You can also use git clone to copy the files to your RPI.
     cd ~
     git clone https://github.com/pageauc/rpi-speed-camera.git
  
-The speed-cam files will be in the /home/pi/rpi-speed-camera folder. You can
+The speed-cam files will be in the `/home/pi/rpi-speed-camera` folder. You can
 then move them to another location if you wish.
  
 Note A default images folder will be created to store jpg speed photos. There is an
-image_path variable in the config.py file.  Use nano editor to change path and/or
+`image_path` variable in the `config.py` file.  Use nano editor to change path and/or
 other variables as desired.
 
 Use the calibrate option and follow instructions below to calculate an accurate
-value for IMAGE_VIEW_FT variable in the speed_settings.py
+value for IMAGE_VIEW_FT variable in the `speed_settings.py`
  
 
 ### Calibration Procedure   
@@ -165,14 +165,14 @@ Please note that if road is too close and/or vehicles are moving too quickly the
 the camera may not capture motion and/or record vehicle in speed photo.
     
 ### Configuration Settings  
-Variable values are stored in the config.py file and are imported
-when speed-cam.py is run.  Use the nano editor to modify these settings
+Variable values are stored in the `config.py` file and are imported
+when `speed-cam.py` is run.  Use the nano editor to modify these settings
 per the comments.  Most settings should be OK and should not need to be
 changed. Others may need to be fine tuned.  The openCV settings most
 likely won't need to be changed unless you are familiar with them.
 
 Note if log_data_to_file is set it will save tracking data to a .csv file
-in the same folder as speed-cam.py  eg speed-cam.csv 
+in the same folder as `speed-cam.py`  eg speed-cam.csv 
 
 ### Project Improvements
 These are some of the improvements I have been thinking about.  Not sure
