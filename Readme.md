@@ -136,17 +136,16 @@ Measure vehicle/object using a tape measure or reference make and model lengths 
 To Calibrate cal_obj_px and cal_obj_mm variables perform the following
 
 * Setup the RPI camera to point to the view to be monitored.
-* Login to RPI using SSH or desktop terminal session and cd to rpi-speed-camera folder
-* Use nano to edit config.py. 
-* Edit variable calibrate=True
+* Login to RPI using SSH or desktop terminal session and `cd rpi-speed-camera` folder
+* Edit `vim config.py`. 
+* Edit variable `calibrate=True`
 * I required Adjust the y_upper and y_lower variables to cover the road area.  Note
   image 0,0 is the top left hand corner and values are in pixels.  Do not
   exceed the CAMERA_HEIGHT value  
-* In nano save changes ( ctl-x y to save )
-* Start speed-cam.py eg python ./speed-cam.py
+* Start `speed-cam.py` with command `python ./speed-cam.py`
 * Motion will automatically be detected and calibration images will be
   put in images folder with prefix calib-
-* Monitor progress and calibration images. Press ctrl-c to Quit when done. 
+* Monitor progress and calibration images. Press `ctrl-c` to Quit when done. 
 * View calibration images with image viewer program or via webserver
   and use hash marks to record cal_obj_px for vehicle/object length
   Note each division is 10 pixels.  I use filezilla to transfer files to/from
@@ -154,8 +153,8 @@ To Calibrate cal_obj_px and cal_obj_mm variables perform the following
 * Record cal_obj_mm length of the speed object above in millimeters   
   You should use several photos to confirm and average results.
 * Use nano to edit the config.py and change values for variables cal_obj_px and cal_obj_mm
-  to new values.  Also change variable calibrate = False
-* Exit nano then start speed_cam.py and monitor console messages.
+  to new values.  Also change variable `calibrate = False`
+* Exit vim then start `speed_cam.py` and monitor console messages.
   Perform a test using a vehicle at a known speed to verify calibration.
 * Make sure y_upper and y_lower variables are correctly set for the area to
   monitor. This will restrict motion detection to area between these variable
@@ -172,7 +171,7 @@ changed. Others may need to be fine tuned.  The openCV settings most
 likely won't need to be changed unless you are familiar with them.
 
 Note if log_data_to_file is set it will save tracking data to a .csv file
-in the same folder as `speed-cam.py`  eg speed-cam.csv 
+in the same folder as `speed-cam.py`  eg `speed-cam.csv`
 
 ### Project Improvements
 These are some of the improvements I have been thinking about.  Not sure
